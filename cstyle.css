@@ -11,7 +11,7 @@ body {
 }
 
 .video-container {
-    position: absolute;
+    position: fixed;
     top: -120px;
     left: 35vw;
     width: 1200px; /* 视频宽度为原来的50% */
