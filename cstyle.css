@@ -10,35 +10,18 @@ body {
     z-index: 1;
 }
 
-.video-container {
-    position: absolute;
-    top: -120px;
-    left: 35vw;
-    width: 1200px; /* 视频宽度为原来的50% */
-    height: auto;
-    overflow: hidden;
-    z-index: -1; /* 确保视频在最底层 */
-}
-
-video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
 .navbar {
     width: 100%;
-    padding: 20px 0;
-    background-color: transparent;
 }
 
 .navbar-links {
     list-style: none;
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    padding: 10px 20px 0 20px;
     width: 100%;
-    padding: 0 20px; /* 左右各留出20px */
 }
 
 .navbar-links li {
@@ -52,12 +35,24 @@ video {
 
 
 .hero {
+    width: 100%;
     height: 702px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: relative;
-    padding: 0 20px;
+    padding: 0 20px 0 20px;
+}
+
+#background-video {
+    position: fixed;
+    max-width: 900px;
+    min-width: 900px;
+    height: auto;
+    right: 10px;
+    overflow: hidden;
+    object-fit: cover;
+    z-index: -1; /* 确保视频在最底层 */
 }
 
 .hero-text-left {
@@ -68,7 +63,6 @@ video {
     font-weight: 500;
     line-height: normal;
     text-transform: uppercase;
-    text-align: left;
 }
 
 .hero-text-right {
@@ -81,7 +75,7 @@ video {
     text-transform: uppercase;
     text-align: left;
     position: absolute;
-    bottom: 93px;
+    bottom: 90px;
     right: 20px;
     white-space: pre-line; /* 允许换行 */
 }
@@ -102,8 +96,7 @@ video {
     line-height: normal;
     text-transform: uppercase;
     position: relative; /* 取消绝对定位，改为相对定位 */
-    top: 0;
-    left: 0;
+    text-align: left;
 }
 
 
@@ -205,6 +198,9 @@ video {
 
 /* Services section */
 .services {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
     position: relative;
     height: 830px;
     width: 100%;
@@ -221,19 +217,17 @@ video {
     font-weight: 500;
     line-height: normal;
     text-transform: uppercase;
-    margin-bottom: 15px; /* 纵向间距为15px */
 }
 
 .service-container {
     display: flex;
     align-items: flex-start; /* 使子项靠顶部对齐 */
+    flex-direction: row;
     gap: 20px;
-    align-self: stretch;
-    position: absolute;
-    top: calc(140px + 15px); /* 调整位置以保持与 h2 的距离 */
-    left: 20px; /* 与 h2 左对齐 */
-    width: calc(33.33vw * 3 + 80px); /* 宽度计算: 3 个 block + 总间距 */
-    transition: transform 1.2s ease-in-out; /* 调整过渡效果的持续时间和缓动函数 */
+    position: relative;
+    width: 100%;
+    height: auto;
+    transition: transform 1.5s ease-in-out; /* 调整过渡效果的持续时间和缓动函数 */
 }
 
 .service-item {
@@ -241,42 +235,28 @@ video {
     display: flex;
     flex-direction: column;
     align-items: center; /* 横向居中 */
-    gap: 30px; /* 子项之间的间距 */
-    width: 613px; /* 进一步减少增加的宽度 */
-    height: 580px;
-    flex-shrink: 0;
+    gap: 8px;
+    width: 33%; /* 进一步减少增加的宽度 */
+    height: auto;
     background: linear-gradient(to bottom, #d8d8d8 45%, #FFFFFF); /* 渐变背景颜色 */
     padding: 20px; /* 边距 */
     box-sizing: border-box;
 }
 
-.video-wrapper {
-    width: 472px;
-    height: 217px;
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-}
-
-.video-wrapper video {
+.sv {
     width: 100%;
-    height: 100%;
+    min-height: 257px;
+    max-height: 257px;
     object-fit: cover;
+    overflow: hidden;
 }
 
 .service-content {
     display: flex;
     flex-direction: column;
+    gap:15px;
     align-items: flex-start;
     width: 100%;
-    margin-bottom: 42px; /* 确保 p 与 container 底部的间距 */
-}
-
-.service-content h3,
-.service-content hr,
-.service-content h4,
-.service-content p {
-    margin: 0;
 }
 
 .service-content h3 {
@@ -293,7 +273,7 @@ video {
 .service-content hr {
     width: 100%; /* 与 p 一致 */
     border: 1px solid #000;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 }
 
 .service-content h4 {
@@ -304,7 +284,6 @@ video {
     font-weight: 500;
     line-height: normal;
     text-transform: uppercase;
-    margin-bottom: 30px;
 }
 
 .service-content p {
@@ -314,12 +293,13 @@ video {
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    margin-bottom: 42px;
 }
 
 
 /* Footer section */
 .footer {
+    width:100%;
+    height: auto;
     position: relative;:
     display: flex;
     padding: 0 20px;
@@ -340,8 +320,13 @@ video {
 }
 
 .footer-title-container {
+    width:100%;
+    height:auto;
     display: flex;
+    flex-direction: row;
     align-items: center;
+    justify-content: space-between;
+
 }
 
 .footer-title {
@@ -352,12 +337,7 @@ video {
     font-weight: 500;
     line-height: normal;
     text-transform: uppercase;
-    margin: 0;
     text-align: left; /* 内容居左 */
-}
-
-.footer-circle {
-    margin-left: 25px;
 }
 
 .footer-subtitle-container {
@@ -390,7 +370,7 @@ video {
     margin: 0;
     text-align: right;
     text-decoration: none;
-    transition: color 0.3s ease; /* 添加过渡效果 */
+    transition: color 0.5s ease; /* 添加过渡效果 */
 }
 
 .footer-email-button:hover {
@@ -398,45 +378,33 @@ video {
     transition-duration: 0.5s;
 }
 
+.social-container p{
+    font-size: 16px;
+}
 
-.footer-image {
+
+#footer-image {
     margin-top: 20px;
     width: 100%;
     height: auto;
     object-fit: cover;
+    overflow: hidden;
 }
 
 .footer-bottom-container {
+    width: 100%;
+    height: auto;
     display: flex;
-    margin-top: 20px;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    gap: 28px;
-    align-self: stretch;
-}
-
-.footer-bottom-links {
-    list-style: none;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    /*padding: 0 0 0 20px; !* 左右各留出20px *!*/
-}
-
-.footer-bottom-links li:last-child {
-    display: flex;
-    /*padding: 10px;*/
-    align-items: flex-start;
-    gap: 20px;
 }
 
 .social-container {
     display: flex;
-    /*padding: 10px;*/
-    align-items: stretch;
-    gap: 20px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .social-block {
@@ -452,22 +420,11 @@ video {
     width: 100%;
     height: 100%;
 }
-@media (max-width: 1500px){
+
+
+@media (max-width: 1280px) {
     .tab-left, .tab-right {
         font-size: 14px;
-    }
-}
-@media (max-width: 1280px) {
-    .video-container {
-        left: 25vw;
-    }
-
-    .tab-left, .tab-right {
-        font-size: 12px;
-    }
-
-    .hero-text-left{
-        margin-bottom: 40px;
     }
 
     .footer-subtitle-container {
@@ -478,26 +435,7 @@ video {
     }
 }
 
-@media (max-width: 1150px){
-    .tab-left, .tab-right {
-        font-size: 8px;
-    }
-}
-
-@media (max-width: 1000px){
-    .tab-left, .tab-right {
-        font-size: 6px;
-    }
-}
-
-@media (max-width: 744px) {
-    .video-container {
-        left: 10vw;
-    }
-
-    .navbar-links li {
-        font-size: 12px;
-    }
+@media (max-width: 850px) {
 
     .hero-text-left {
         font-size: 64px;
@@ -507,15 +445,15 @@ video {
     .hero-text-right {
         font-size: 16px;
         font-weight: 500;
-        text-align: left;
-        position: absolute;
-        left: 20px;
+        left:20px;
     }
+}
 
-    .services {
-        padding: 66px 20px 0 20px; /* 视窗左右间距20px */
-        overflow: visible;
-    }
+@media (max-width: 744px) {
+
+        .services {
+            overflow: visible;
+        }
 
     .services h2 {
         margin-top: 78px;
@@ -525,18 +463,15 @@ video {
         display: flex;
         flex-direction: column; /* 变为纵向排列 */
         align-items: flex-start; /* 左对齐 */
-        width: auto;
-        height: auto;
-        gap: 100px;
-        left: 20px; /* 与 h2 左对齐 */
         margin-top: 78px;
+        width: 100%;
+        height: auto;
         transition: none; /* 取消过渡效果 */
         box-sizing: border-box; /* 确保内边距计算在宽度内 */
-        padding-right: 20px; /* 视窗左右间距20px */
     }
 
     .service-item {
-        width: calc(100% - 15px); /* 宽度计算: 视窗宽度减去左右间距 */
+        width: 100%; /* 宽度计算: 视窗宽度减去左右间距 */
         margin: 0; /* 取消左右间距 */
     }
 
@@ -548,18 +483,53 @@ video {
         height: 366px;
     }
 
-    .footer-bottom-links li {
-        font-size: 8px;
-    }
-
-    .social-block {
-        width: 24px;
-        padding: 0;
-    }
-
     .tabs {
         display: none;
     }
 }
 
+@media (max-width: 400px) {
+    .navbar-links li {
+        font-size: 12px;
+    }
 
+    .hero-text-left {
+        font-size: 48px;
+    }
+
+    .projects h2 {
+        font-size: 48px;
+
+    }
+
+    .footer {
+        margin-top: 2000px;
+    }
+
+    .footer-title {
+        font-size: 64px;
+    }
+
+    .footer-subtitle {
+        font-size: 16px;
+    }
+
+    .footer-email-button {
+        font-size: 16px;
+    }
+
+    .footer-bottom-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+
+    .social-container {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
