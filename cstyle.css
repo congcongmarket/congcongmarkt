@@ -202,7 +202,7 @@ body {
     flex-direction: column;
     gap: 16px;
     position: relative;
-    height: 830px;
+    height:auto;
     width: 100%;
     padding: 66px 20px 0 20px; /* 顶部66px，左右20px */
     box-sizing: border-box;
@@ -308,7 +308,7 @@ body {
     align-items: center;
     gap: 20px; /* 修改间距为20px */
     align-self: stretch;
-    background-color: #FFFFFF;
+    background-color: transparent;
 }
 
 .footer-container {
@@ -316,7 +316,7 @@ body {
     flex-direction: column;
     align-items: flex-start;
     gap: 20px;
-    background-color: #fff; /* 背景颜色为白色 */
+    background-color: transparent;
 }
 
 .footer-title-container {
@@ -421,7 +421,6 @@ body {
     height: 100%;
 }
 
-
 @media (max-width: 1280px) {
     .tab-left, .tab-right {
         font-size: 14px;
@@ -451,19 +450,19 @@ body {
 
 @media (max-width: 744px) {
 
-        .services {
+    .services {
             overflow: visible;
         }
 
     .services h2 {
-        margin-top: 78px;
+        margin-top: 32px;
     }
 
     .service-container {
         display: flex;
         flex-direction: column; /* 变为纵向排列 */
         align-items: flex-start; /* 左对齐 */
-        margin-top: 78px;
+        margin-top: 16px;
         width: 100%;
         height: auto;
         transition: none; /* 取消过渡效果 */
@@ -475,16 +474,16 @@ body {
         margin: 0; /* 取消左右间距 */
     }
 
-    .footer {
-        margin-top: 1450px;
-    }
-
     .footer-image {
         height: 366px;
     }
 
     .tabs {
         display: none;
+    }
+
+    .footer {
+        margin-top: 64px;
     }
 }
 
@@ -500,10 +499,6 @@ body {
     .projects h2 {
         font-size: 48px;
 
-    }
-
-    .footer {
-        margin-top: 2000px;
     }
 
     .footer-title {
@@ -532,4 +527,18 @@ body {
         align-items: center;
         justify-content: space-between;
     }
+
+    .footer-subtitle-container {
+        gap: 8px;
+    }
+
+    #footer-image {
+        margin-top: 8px;
+    }
+
+    .footer-bottom-container {
+        margin-top: 8px;
+        gap:8px;
+    }
 }
+
