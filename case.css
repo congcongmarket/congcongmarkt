@@ -1,0 +1,471 @@
+/* =========================================
+   1. 基础重置与全局变量 (保留)
+   ========================================= */
+:root {
+  --bg-color: #ffffff;
+  --bg-card: #f3f3f3;
+  --bg-card2: #fafafa;
+  --text-primary: #000000;
+  --text-secondary: #4b5563;
+  --text-muted: #cacaca;
+  --text-one: #ffffff;
+  --text-two: #a0a0a0;
+  --nav-bg: rgba(255, 255, 255, 0.60);
+  --gradient-primary: linear-gradient(90deg, #006205 0%, #90af04 100%);
+  --transition-speed: 0.3s;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth; 
+}
+body {
+  font-family: 'Manrope', sans-serif;
+  background-color: linear-gradient(180deg, var(--bg-color, #FFF) 0%, var(--bg-card, #F3F3F3) 100%);
+  color: var(--text-primary);
+}
+
+/* =========================================
+   2. 导航栏 (Navbar) (保留)
+   ========================================= */
+.navbar {
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 12px 80px;
+  background: var(--nav-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.nav-logo { display: flex; align-items: center; max-width: 40px; }
+.nav-logo img { max-width: 40px; aspect-ratio: 1 / 1; object-fit: contain; }
+
+.nav-menu {
+  display: inline-flex;
+  align-items: center;
+  background: var(--nav-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 24px; 
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.05) inset;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.nav-link {
+  padding: 10px 24px;
+  color: var(--text-secondary);
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 999px;
+  transition: all var(--transition-speed) ease;
+}
+
+.nav-link:hover { color: var(--text-primary); }
+
+.nav-link.active {
+  background: linear-gradient(180deg, #f8ffee 0%, #ffffff 100%);
+  color: var(--text-primary);
+  border-radius: 42px;
+  box-shadow: -2px -2px 2px 0 rgba(168, 196, 238, 0.25) inset;
+}
+
+.nav-actions { display: flex; justify-content: flex-end; width: 200px; }
+
+.btn-download {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px 10px 20px;
+  background-color: var(--text-primary);
+  color: var(--text-one);
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 42px;
+  transition: background-color var(--transition-speed) ease;
+}
+
+.bth-menu-mobile, .btn-download-tablet{
+  display: none;
+}
+
+.btn-download:hover { background-color: #333333; }
+
+/* 必须保留的斜体高亮组件 */
+.highlight-serif {
+  display: inline-block;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  padding-right: 24px;
+  padding-left: 10px;
+  margin-right: -10px;
+  letter-spacing: normal; 
+  line-height: normal; 
+  background: var(--gradient-primary);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  overflow: visible;
+}
+
+
+/* =========================================
+   3. 案例详情：顶部 Hero 介绍区
+   ========================================= */
+.case-detail-hero {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 120px 80px 80px 80px; 
+  background-color: transparent;
+}
+
+.case-hero-text {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.case-title {
+  font-size: 64px;
+  font-weight: 500;
+  letter-spacing: -4.48px;
+  color: var(--text-primary);
+}
+
+.case-description {
+  font-size: 16px;
+  color: var(--text-primary);
+  font-weight: 400;
+  letter-spacing: -0.32px;
+}
+
+.case-hero-image {
+  flex: 1;
+  display: flex;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.case-hero-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+
+/* =========================================
+   4. 案例详情：内容列表区
+   ========================================= */
+.case-detail-content {
+  display: flex;
+  align-items: flex-start; /* 必须设置，否则 Sidebar 无法触发 sticky */
+  gap: 20px; 
+  padding: 0 80px 80px 80px;
+  background-color: transparent;
+}
+
+/* 左侧粘性侧边栏 */
+.case-sidebar {
+  width: 160px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: sticky;
+  top: 120px; 
+}
+
+.sidebar-item {
+  font-size: 18px;
+  color: var(--text-two);
+  text-decoration: none;
+  transition: color var(--transition-speed) ease;
+  font-weight: 400;
+  letter-spacing: -0.36px;
+}
+
+/* 侧边栏当前激活状态 (修正：使用类名 .active) */
+.sidebar-item.active {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* 右侧详情列表 */
+.case-info-list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.info-block {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 40px 0;
+  border-bottom: 1px solid var(--text-muted);
+}
+
+.info-block:first-child { padding-top: 0; }
+.info-block:last-child { border-bottom: none; padding-bottom: 0; }
+
+.info-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.info-date,
+.info-subtitle {
+  font-size: 18px;
+  color: var(--text-primary);
+  font-weight: 400;
+}
+
+.info-desc {
+  font-size: 18px;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+
+/* =========================================
+   8. 页脚 (Footer Section) (保留)
+   ========================================= */
+.footer-section {
+  display: flex;
+  flex-direction: column;
+  gap: 86px;
+  background-color: var(--text-primary); 
+  color: var(--bg-color); 
+  padding: 120px 80px 40px 80px;
+  border-radius: 40px 40px 0 0; 
+  align-self: stretch;
+  font-family: 'Geist', sans-serif;
+}
+
+.footer-top {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.footer-brand { display: flex; flex-direction: column; justify-content: space-between; }
+.footer-logo { max-width: 96px; max-height: 89px; object-fit: contain; }
+.footer-slogan { font-size: 24px; font-weight: 400; color: var(--bg-color); text-transform: capitalize; }
+
+.footer-links-container { display: flex; min-width: 363px; justify-content: space-between; align-items: flex-start; }
+.footer-nav-col { display: flex; width: 168px; flex-direction: column; align-items: flex-start; gap: 31px; flex-shrink: 0; }
+.footer-col-title { color: var(--bg-color); font-size: 24px; font-weight: 500; text-transform: capitalize; }
+
+.footer-link {
+  font-size: 18px;
+  font-weight: 400;
+  color: #E6E6E6;
+  text-decoration: none;
+  transition: color var(--transition-speed) ease;
+}
+
+.footer-link:hover { color: var(--bg-color); }
+
+.footer-bottom { display: flex; align-items: flex-start; }
+.copyright-text { font-size: 18px; color: var(--text-muted); font-weight: 400; }
+
+.legal-link {
+  font-size: 18px;
+  color: #e4f2ff; 
+  text-decoration: none;
+  font-weight: 400;
+  transition: opacity var(--transition-speed) ease;
+}
+
+.legal-link:hover { opacity: 0.7; }
+
+/* =========================================
+   修正：在桌面和 Tablet 端强制隐藏汉堡按钮
+   ========================================= */
+.btn-menu-mobile { 
+  display: none; 
+}
+
+
+
+
+/* =========================================
+   9. 响应式适配 (Tablet & Mobile)
+   ========================================= */
+
+/* -----------------------------------------
+   [ Tablet 端适配 ] (屏幕宽度 <= 1024px)
+   策略：缩减留白、 Gap 和文字大小，保持整体结构不变，优化 Stats
+   ----------------------------------------- */
+@media screen and (max-width: 1024px) {
+  /* =========================================
+   修正：在桌面和 Tablet 端强制隐藏汉堡按钮
+   ========================================= */
+.btn-menu-mobile { 
+  display: none; 
+}
+  /* =========================================
+     Navbar Tablet 端适配
+     ========================================= */
+  .navbar { padding: 12px 40px; }
+
+  /* 魔法布局：让左右容器设置 flex: 1 均分两侧空间，这样中间的 nav-menu 就能绝对居中！ */
+  .nav-logo { flex: 1; display: flex; align-items: center; max-width: none; }
+  .nav-logo img { max-width: 40px; aspect-ratio: 1 / 1; object-fit: contain; }
+
+  .nav-actions { flex: 1; display: flex; justify-content: flex-end; width: auto; }
+
+  /* 隐藏桌面端带文字的按钮 */
+  .btn-download {
+    display: none;
+  }
+
+  /* 显示并美化 Tablet 端纯 Icon 按钮为正圆形 */
+  .btn-download-tablet {
+    display: flex;
+    width: 44px; /* 宽高设为一致 */
+    height: 44px;
+    padding: 0; /* 去掉多余的左右内边距 */
+    justify-content: center;
+    align-items: center;
+    background-color: var(--text-primary);
+    color: var(--text-one);
+    border-radius: 50%; /* 设置为 50% 变成完美的正圆 */
+    transition: background-color var(--transition-speed) ease;
+  }
+  
+  .btn-download-tablet:hover {
+    background-color: #333333;
+  }
+
+  .case-detail-hero { padding: 120px 40px 80px 40px; gap: 20px; }
+
+  /* 内容区域：缩减两侧 Padding，稍微收紧一点侧边栏 */
+  .case-detail-content { padding: 0 40px 80px 40px; gap: 20px; }
+  .case-sidebar { width: 140px; } 
+
+  .footer-section { padding: 120px 40px 40px 40px; }
+  .footer-brand { max-width: 213px;}
+  .footer-nav-col { min-height: 247px; }
+}
+
+/* -----------------------------------------
+   [ Mobile 手机端适配 ] (屏幕宽度 <= 768px)
+   ----------------------------------------- */
+@media screen and (max-width: 768px) {
+  
+  /* =========================================
+     1. Navbar & 下拉菜单 (完全锁定，与主页一致)
+     ========================================= */
+  .navbar { 
+    padding: 20px 20px 0 20px; 
+    flex-wrap: wrap; 
+    background: var(--nav-bg); 
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+  .nav-logo { order: 1; }
+  .nav-actions { order: 2; width: auto; gap: 12px; }
+  
+  .btn-menu-mobile {
+    display: flex; width: 44px; height: 44px;
+    justify-content: center; align-items: center;
+    background-color: var(--text-primary); color: var(--text-one);
+    border-radius: 50%; border: none; cursor: pointer;
+    transition: background-color var(--transition-speed) ease;
+  }
+
+  .nav-menu {
+    order: 3; width: 100%; flex-direction: column; align-items: flex-start;
+    position: static; background: transparent; backdrop-filter: none;
+    -webkit-backdrop-filter: none; border: none; box-shadow: none; border-radius: 0;
+    max-height: 0; opacity: 0; overflow: hidden; margin-top: 0;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .nav-menu.active { max-height: 400px; opacity: 1; }
+  .nav-link { font-size: 20px; padding: 20px 0; font-weight: 600; width: 100%; }
+  .nav-link.active { background: transparent; box-shadow: none; color: var(--text-primary); }
+
+  /* =========================================
+     2. Case Detail / About 详情页核心适配
+     ========================================= */
+     
+  /* --- Hero 区域：纵向堆叠，缩小文字 --- */
+  .case-detail-hero {
+    flex-direction: column;
+    padding: 120px 20px 80px 20px; /* 留出 Navbar 的高度 */
+    gap: 20px;
+  }
+  .case-title { font-size: 48px; letter-spacing: -3.36px; line-height: 1.1; }
+  .case-description { font-size: 14px; letter-spacing: -0.28px; }
+  .case-hero-image { width: 100%; flex: none; }
+  .case-hero-image img { border-radius: 20px; }
+
+  /* --- 内容区域：取消左右布局 --- */
+  .case-detail-content {
+    flex-direction: column;
+    padding: 0 20px 40px 20px;
+    gap: 20px;
+  }
+
+  /* --- 侧边栏魔法：变成横向可滑动的 Tab 栏 --- */
+  .case-sidebar {
+    position: relative; /* 取消 sticky 粘性定位 */
+    top: 0;
+    width: 100%;
+    flex-direction: row; /* 横向排列 */
+    overflow-x: auto; /* 超出宽度可横向滑动 */
+    white-space: nowrap; /* 强制不换行 */
+    gap: 20px;
+    padding-bottom: 10px; /* 给下方留点呼吸空间 */
+    -ms-overflow-style: none; /* 隐藏 IE/Edge 滚动条 */
+    scrollbar-width: none; /* 隐藏 Firefox 滚动条 */
+  }
+  /* 隐藏 Chrome/Safari 滚动条，让横滑更优雅 */
+  .case-sidebar::-webkit-scrollbar { display: none; }
+  
+  .sidebar-item { font-size: 16px; }
+
+  /* --- 信息区块 --- */
+  .case-info-list { width: 100%; flex: none; }
+  .info-block { gap: 12px; }
+  .info-title { font-size: 20px; }
+  .info-date, .info-subtitle { font-size: 18px; }
+  .info-desc { font-size: 14px; letter-spacing: -0.28px; }
+
+  /* --- Next Case 按钮区域 --- */
+  .next-case-section {
+    padding: 0 20px 80px 20px;
+  }
+  .next-case-btn {
+    width: 100%; /* 手机端铺满屏幕宽度，方便大拇指点击 */
+    justify-content: center;
+    font-size: 16px;
+  }
+
+  /* =========================================
+     3. Footer 区域 (完全锁定，与主页一致)
+     ========================================= */
+  .footer-section { padding: 120px 20px 40px 20px; border-radius: 20px 20px 0 0; }
+  .footer-logo { max-width: 60px; height: auto; padding-bottom: 20px; object-fit: cover;}
+  .footer-slogan { font-size: 20px; font-weight: 400; }
+  .footer-link { font-size: 14px; }
+  .footer-col-title { font-size: 20px; }
+  .footer-top { flex-direction: column; gap: 40px; }
+  .footer-links-container { flex-direction: column; gap: 40px; }
+  .footer-nav-col { gap: 20px; width: 168px; min-height: 178px; }
+  .copyright-text, .legal-link { font-size: 14px; }
+}
