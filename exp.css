@@ -1,0 +1,370 @@
+/* =========================================
+   1. 基础重置与全局变量
+   ========================================= */
+:root {
+  --bg-color: #ffffff;
+  --bg-card: #f3f3f3;
+  --bg-card2: #fafafa;
+  --text-primary: #000000;
+  --text-secondary: #4b5563;
+  --text-muted: #cacaca;
+  --text-one: #ffffff;
+  --text-two: #a0a0a0;
+  --nav-bg: rgba(255, 255, 255, 0.60);
+  --gradient-primary: linear-gradient(90deg, #006205 0%, #90af04 100%);
+  --transition-speed: 0.3s;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Manrope', sans-serif; 
+      background: linear-gradient(180deg, var(--bg-color, #FFF) 0%, var(--bg-card, #F3F3F3) 100%); 
+      color: var(--text-primary); 
+}
+
+/* 默认在桌面端隐藏移动端按钮 */
+.btn-menu-mobile, .btn-download-tablet { 
+  display: none; 
+}
+
+/* =========================================
+   2. 导航栏 (Navbar)
+   ========================================= */
+.navbar { position: fixed; top: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; width: 100%; padding: 12px 80px; background: var(--nav-bg); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+.nav-logo { display: flex; align-items: center; max-width: 40px; }
+.nav-logo img { max-width: 40px; aspect-ratio: 1 / 1; object-fit: contain; }
+.nav-menu { display: inline-flex; align-items: center; background: var(--nav-bg); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-radius: 24px; box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.05) inset; border: 1px solid rgba(255, 255, 255, 0.3); }
+.nav-link { padding: 10px 24px; color: var(--text-secondary); font-size: 15px; font-weight: 500; text-decoration: none; border-radius: 999px; transition: all var(--transition-speed) ease; }
+.nav-link:hover { color: var(--text-primary); }
+.nav-link.active { background: linear-gradient(180deg, #f8ffee 0%, #ffffff 100%); color: var(--text-primary); border-radius: 42px; box-shadow: -2px -2px 2px 0 rgba(168, 196, 238, 0.25) inset; }
+.nav-actions { display: flex; justify-content: flex-end; width: 200px; }
+.btn-download { display: flex; align-items: center; gap: 10px; padding: 10px 12px 10px 20px; background-color: var(--text-primary); color: var(--text-one); font-size: 15px; font-weight: 500; text-decoration: none; border-radius: 42px; transition: background-color var(--transition-speed) ease; }
+.btn-download:hover { background-color: #333333; }
+
+/* =========================================
+   3. EXP 详情：顶部 Hero 介绍区
+   ========================================= */
+.exp-detail-hero {
+  display: flex;
+  flex-direction: column; 
+  gap: 40px; 
+  padding: 200px 80px 80px 80px; 
+  background-color: transparent;
+}
+
+.exp-hero-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.exp-title {
+  font-size: 64px;
+  font-weight: 500;
+  letter-spacing: -4.48px; 
+  color: var(--text-primary);
+}
+
+.exp-description {
+  font-size: 16px;
+  color: var(--text-primary);
+  font-weight: 400;
+  letter-spacing: -0.32px; /* 已修正为英文分号 */
+}
+
+/* 顶部全宽大图 */
+.exp-hero-image {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 4px 4px 12px 0 rgba(0, 0, 0, 0.05);
+}
+
+.exp-hero-image img {
+  display: block;
+  width: 100%;
+  height: auto; 
+  object-fit: cover;
+}
+
+/* =========================================
+   4. EXP 详情：内容列表区
+   ========================================= */
+.exp-detail-content {
+  display: flex;
+  align-items: flex-start; 
+  gap: 20px; 
+  padding: 0 80px 80px 80px;
+  background-color: transparent;
+}
+
+/* 左侧粘性侧边栏 */
+.exp-sidebar {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: sticky;
+  top: 120px; 
+}
+
+.sidebar-item {
+  font-size: 18px;
+  color: var(--text-two);
+  text-decoration: none;
+  transition: color var(--transition-speed) ease;
+  font-weight: 400;
+  letter-spacing: -0.36px;
+}
+
+.sidebar-item.active {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* 右侧详情列表 */
+.exp-info-list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.info-block {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; 
+  padding: 40px 0;
+  border-bottom: 1px solid var(--text-muted);
+}
+
+.info-block:first-child { padding-top: 0; }
+.info-block:last-child { border-bottom: none; padding-bottom: 0;}
+
+.info-title { font-size: 24px; font-weight: 600; color: var(--text-primary); }
+.info-subtitle { font-size: 18px; font-weight: 600; color: var(--text-primary); }
+.info-desc { font-size: 18px; font-weight: 400; color: var(--text-primary); }
+
+/* 列表内的配图容器 */
+.info-video {
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.info-video video {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* =========================================
+   5. 下一个案例引导区 (Next Case Section)
+   ========================================= */
+.next-case-section {
+  display: flex;
+  justify-content: center; /* 靠右对齐，符合用户看完页面后向右/向下的阅读视线流 */
+  padding: 0 80px 80px 80px; 
+  background-color: transparent;
+}
+
+.next-case-btn {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px;
+  font-size: 20px;
+  font-weight: 600;
+  background-color: var(--text-primary);
+  color: var(--bg-color);
+  text-decoration: none;
+  transition: opacity var(--transition-speed) ease;
+  border-radius: 42px;
+}
+
+/* 整个按钮 Hover 时的微小透明度变化，保持克制 */
+.next-case-btn:hover {
+  opacity: 0.6;
+}
+
+/* 箭头自身的平滑过渡设定 */
+.next-case-btn svg {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* 核心交互：Hover 时箭头向右产生丝滑位移，暗示“前往下一个” */
+.next-case-btn:hover svg {
+  transform: translateX(8px);
+}
+
+
+/* =========================================
+   8. 页脚 (Footer Section)
+   ========================================= */
+.footer-section { display: flex; flex-direction: column; gap: 86px; background-color: var(--text-primary); color: var(--bg-color); padding: 120px 80px 40px 80px; border-radius: 40px 40px 0 0; font-family: 'Geist', sans-serif; }
+.footer-top { display: flex; width: 100%; justify-content: space-between; align-items: stretch; }
+.footer-brand { display: flex; flex-direction: column; justify-content: space-between; }
+.footer-logo { max-width: 96px; max-height: 89px; object-fit: contain; }
+.footer-slogan { font-size: 24px; font-weight: 400; color: var(--bg-color); text-transform: capitalize; }
+.footer-links-container { display: flex; min-width: 363px; justify-content: space-between; align-items: flex-start; }
+.footer-nav-col { display: flex; width: 168px; flex-direction: column; align-items: flex-start; gap: 31px; flex-shrink: 0; }
+.footer-col-title { color: var(--bg-color); font-size: 24px; font-weight: 500; text-transform: capitalize; }
+.footer-link { font-size: 18px; font-weight: 400; color: #E6E6E6; text-decoration: none; transition: color var(--transition-speed) ease; }
+.footer-link:hover { color: var(--bg-color); }
+.footer-bottom { display: flex; align-items: flex-start; }
+.copyright-text { font-size: 18px; color: var(--text-muted); font-weight: 400; }
+.legal-link { font-size: 18px; color: #e4f2ff; text-decoration: none; font-weight: 400; transition: opacity var(--transition-speed) ease; }
+.legal-link:hover { opacity: 0.7; }
+
+
+/* =========================================
+   9. 响应式适配 (Tablet & Mobile)
+   ========================================= */
+
+/* -----------------------------------------
+   [ Tablet 端适配 ] (屏幕宽度 <= 1024px)
+   ----------------------------------------- */
+@media screen and (max-width: 1024px) {
+  
+  /* --- Navbar 适配 (居中对齐与正圆按钮) --- */
+  .navbar { padding: 12px 40px; }
+  .nav-logo { flex: 1; display: flex; align-items: center; max-width: none; }
+  .nav-logo img { max-width: 40px; aspect-ratio: 1 / 1; object-fit: contain; }
+  .nav-actions { flex: 1; display: flex; justify-content: flex-end; width: auto; gap: 12px; }
+
+  .btn-download { display: none; } /* 隐藏文字按钮 */
+  
+  .btn-download-tablet {
+    display: flex;
+    width: 44px; height: 44px; padding: 0;
+    justify-content: center; align-items: center;
+    background-color: var(--text-primary); color: var(--text-one);
+    border-radius: 50%; 
+    transition: background-color var(--transition-speed) ease;
+  }
+  .btn-download-tablet:hover { background-color: #333333; }
+
+  /* --- Hero 区域：缩减高度和字体 --- */
+  .exp-detail-hero { padding: 80px 40px 80px 40px; gap: 20px; }
+
+  /* --- 内容区域：缩减 Padding，稍微收紧侧边栏 --- */
+  .exp-detail-content { padding: 0 40px 80px 40px; gap: 20px; }
+  .exp-sidebar { width: 140px; } 
+  
+  /* --- 下一页按钮区域 --- */
+  .next-case-section { padding: 0 40px 80px 40px; }
+
+  /* --- Footer 区域 --- */
+  .footer-section { padding: 80px 40px 40px 40px; gap: 60px; }
+  .footer-links-container { min-width: 300px; gap: 40px; }
+}
+
+/* -----------------------------------------
+   [ Mobile 手机端适配 ] (屏幕宽度 <= 768px)
+   ----------------------------------------- */
+@media screen and (max-width: 768px) {
+  
+  /* =========================================
+     1. Navbar & 下拉菜单 (完全锁定，与主页一致)
+     ========================================= */
+  .navbar { 
+    padding: 12px 20px; 
+    flex-wrap: wrap; 
+    background: rgba(255, 255, 255, 0.75); 
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+  .nav-logo { order: 1; }
+  .nav-actions { order: 2; width: auto; gap: 12px; }
+  
+  .btn-menu-mobile {
+    display: flex; width: 44px; height: 44px;
+    justify-content: center; align-items: center;
+    background-color: var(--text-primary); color: var(--text-one);
+    border-radius: 50%; border: none; cursor: pointer;
+    transition: background-color var(--transition-speed) ease;
+  }
+
+  .nav-menu {
+    order: 3; width: 100%; flex-direction: column; align-items: flex-start;
+    position: static; background: transparent; backdrop-filter: none;
+    -webkit-backdrop-filter: none; border: none; box-shadow: none; border-radius: 0;
+    max-height: 0; opacity: 0; overflow: hidden; padding: 0 10px; margin-top: 0;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .nav-menu.active { max-height: 400px; opacity: 1; padding: 20px 10px 10px 10px; margin-top: 10px; border-top: 1px solid rgba(0, 0, 0, 0.05); }
+  .nav-link { font-size: 24px; padding: 16px 0; font-weight: 500; width: 100%; }
+  .nav-link.active { background: transparent; box-shadow: none; color: var(--text-primary); }
+
+  /* =========================================
+     2. EXP 详情页核心适配
+     ========================================= */
+     
+  /* --- Hero 区域：纵向堆叠，缩小文字 --- */
+  .exp-detail-hero {
+    flex-direction: column;
+    padding: 80px 20px 40px 20px; /* 顶部留出导航栏空间 */
+    gap: 30px;
+  }
+  .exp-title { font-size: 48px; letter-spacing: -3.36px;  }
+  .exp-description { font-size: 14px; letter-spacing: -0.28px; }
+  .exp-hero-image { width: 100%; flex: none; }
+  .exp-hero-image img { border-radius: 20px; }
+
+  /* --- 内容区域：取消左右布局，改为上下堆叠 --- */
+  .exp-detail-content {
+    flex-direction: column;
+    padding: 0 20px 40px 20px;
+    gap: 20px;
+  }
+
+  /* --- 侧边栏魔法：变成横向可滑动的 Tab 栏 --- */
+  .exp-sidebar {
+    position: relative; /* 取消 sticky 粘性定位 */
+    top: 0;
+    width: 100%;
+    flex-direction: row; /* 横向排列 */
+    overflow-x: auto; /* 超出宽度可横向滑动 */
+    white-space: nowrap; /* 强制不换行 */
+    gap: 20px;
+    -ms-overflow-style: none; /* 隐藏 IE/Edge 滚动条 */
+    scrollbar-width: none; /* 隐藏 Firefox 滚动条 */
+  }
+  /* 隐藏 Chrome/Safari 滚动条，让横滑更优雅 */
+  .exp-sidebar::-webkit-scrollbar { display: none; }
+  
+  .sidebar-item { font-size: 18px; }
+
+  .sidebar-item.active { font-size: 18px; font-weight: 600; color: var(--text-primary); }
+
+  /* --- 信息区块：精简字号与间距 --- */
+  .exp-info-list { width: 100%; flex: none; }
+  .info-block { padding: 40px 0; gap: 20px; }
+  .info-title { font-size: 20px; }
+  .info-subtitle { font-size: 16px; }
+  .info-desc { font-size: 14px; letter-spacing: -0.28px; }
+  
+  .info-video { border-radius: 12px; } /* 配图圆角缩小 */
+
+  /* --- Next Case 按钮区域 --- */
+  .next-case-section { 
+    padding: 0 20px 40px 20px; 
+  }
+  .next-case-btn {
+  font-size: 14px;
+}
+
+  /* =========================================
+     3. Footer 区域 (完全锁定，与主页一致)
+     ========================================= */
+  .footer-section { padding: 80px 20px 40px 20px; border-radius: 20px 20px 0 0; gap: 40px; }
+  .footer-logo { max-width: 60px; height: auto; padding-bottom: 20px; object-fit: cover;}
+  .footer-slogan { font-size: 20px; font-weight: 400; }
+  .footer-link { font-size: 14px; }
+  .footer-col-title { font-size: 20px; }
+  .footer-top { flex-direction: column; gap: 40px; }
+  .footer-links-container { flex-direction: column; gap: 40px; }
+  .footer-nav-col { gap: 20px; width: 100%; min-height: auto; } /* 释放固定高度 */
+  .footer-bottom { flex-direction: column; gap: 10px; }
+  .copyright-text, .legal-link { font-size: 14px; }
+}
