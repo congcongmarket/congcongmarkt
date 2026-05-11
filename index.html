@@ -146,84 +146,60 @@
         <h2 class="section-title">Selected Works</h2>
         <p class="section-subtitle">A mix of in-house products and client projects</p>
       </div>
+      
+      <!-- 🌟 新增：右上角的 View All Projects 按钮 -->
       <div class="header-right">
-        <button class="nav-arrow prev-arrow">
-          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </button>
-        <button class="nav-arrow next-arrow">
-          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <a href="playground.html" class="btn-view-all">
+          View All Projects
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-        </button>
+        </a>
       </div>
     </div>
 
+    <!-- 🌟 轮播容器 -->
     <div class="carousel-wrapper" style="position: relative;">
       
+      <!-- 🌟 将箭头移入容器内部，方便绝对定位覆盖在图片上 -->
+      <button class="nav-arrow prev-arrow">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      <button class="nav-arrow next-arrow">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      
+      <!-- 卡片 1 (整图可点击) -->
       <div class="project-card active">
-        <div class="project-image">
-          <img src="vagan.webp" loading="lazy" alt="Enterprise Mobility Experience">
-        </div>
-        <div class="project-info">
-          <div class="info-left">
-            <h3 class="project-title">Enterprise Mobility Experience</h3>
-            <p class="project-meta">SAIC · Volkswagen</p>
-            <p class="project-date">July 2025</p>
+        <a href="exp.html" class="project-image-link">
+          <div class="project-image">
+            <img src="vagan.webp" loading="lazy" alt="Enterprise Mobility Experience">
           </div>
-          <div class="info-right">
-            <a href="exp.html" class="btn-read">
-              Read The Casestudy
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </a>
-          </div>
-        </div>
+        </a>
       </div>
 
+      <!-- 卡片 2 (整图可点击) -->
       <div class="project-card">
-        <div class="project-image">
-          <img src="exp2H.webp" loading="lazy" alt="Web3 Trading Dashboard">
-        </div>
-        <div class="project-info">
-          <div class="info-left">
-            <h3 class="project-title">Web3 Trading Dashboard</h3>
-            <p class="project-meta">Decentralized Finance</p>
-            <p class="project-date">February 2026</p>
+        <a href="exp2.html" class="project-image-link">
+          <div class="project-image">
+            <img src="exp2H.webp" loading="lazy" alt="Web3 Trading Dashboard">
           </div>
-          <div class="info-right">
-            <a href="exp2.html" class="btn-read">
-              Read The Casestudy
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </a>
-          </div>
-        </div>
+        </a>
       </div>
 
+      <!-- 卡片 3 (整图可点击) -->
       <div class="project-card">
-        <div class="project-image">
-          <img src="exp3H.webp" loading="lazy" alt="Digital Vault Experience">
-        </div>
-        <div class="project-info">
-          <div class="info-left">
-            <h3 class="project-title">Digital Vault Experience</h3>
-            <p class="project-meta">Modular Animation</p>
-            <p class="project-date">January 2026</p>
+        <a href="exp3.html" class="project-image-link">
+          <div class="project-image">
+            <img src="exp3H.webp" loading="lazy" alt="Digital Vault Experience">
           </div>
-          <div class="info-right">
-            <a href="exp3.html" class="btn-read">
-              Read The Casestudy
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </a>
-          </div>
-        </div>
+        </a>
       </div>
+
     </div>
 
     <div class="carousel-pagination">
