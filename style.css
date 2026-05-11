@@ -283,80 +283,116 @@ body {
   background-color: transparent;
 }
 
-.section-header { display: flex; justify-content: space-between; align-items: center; }
+.section-header { display: flex; justify-content: space-between; align-items: flex-end; }
 .header-left { display: flex; flex-direction: column; align-items: flex-start; gap: 20px; }
 .section-tag { display: inline-flex; align-items: center; gap: 8px; color: var(--text-two); font-size: 14px; letter-spacing: -0.28px; }
-.section-title { color: var(--text-primary); font-size: 64px; font-weight: 600; letter-spacing: -4.48px; }
+.section-title { color: var(--text-primary); font-size: 64px; font-weight: 600; letter-spacing: -4.48px; line-height: 1; }
 .section-subtitle { color: var(--text-two); font-size: 18px; letter-spacing: -0.36px; }
-.header-right { display: flex; gap: 40px; }
 
-.nav-arrow {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  min-width: 72px;
-  aspect-ratio: 1 / 1;
-  background: linear-gradient(180deg, #F8FFEE 0%, #FFF 100%);
-  color: var(--text-primary);
-  border: none;
-  border-radius: 50%;
-  box-shadow: -3.273px -3.273px 3.273px 0 rgba(168, 196, 238, 0.25) inset;
-  cursor: pointer;
-  transition: all var(--transition-speed) ease;
-}
+.header-right { display: flex; align-items: center; }
 
-.nav-arrow:hover { background-color: #FAFAFA; }
-
-/* 修改：默认隐藏所有卡片，只有带 active 的才显示 */
-.project-card {
-  display: none; 
-  flex-direction: column;
-  gap: 10px;
-  background-color: var(--bg-color);
-  border-radius: 20px;
-  box-shadow: 0 4px 40px rgba(0, 0, 0, 0.05); 
-  overflow: hidden;
-}
-
-/* 激活状态：使用 flex 布局并加入滑入淡出动画 */
-.project-card.active {
-  display: flex;
-  animation: slideFadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-/* 丝滑的卡片切换动画 */
-@keyframes slideFadeIn {
-  0% { opacity: 0; transform: translateX(20px); }
-  100% { opacity: 1; transform: translateX(0); }
-}
-
-.project-image { width: 100%; height: auto; overflow: hidden; }
-.project-image img { display: block; width: 100%; height: auto; object-fit: cover; }
-
-.project-info { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 10px 20px; }
-.info-left { display: flex; flex-direction: column; gap: 12px; }
-.project-title { color: var(--text-primary); font-size: 24px; font-weight: 600; letter-spacing: -0.48px; }
-.project-meta, .project-date { color: var(--text-two); font-size: 18px; letter-spacing: -0.36px; }
-
-.btn-read {
+/* 🌟 新增：View All Projects 黑色按钮 */
+.btn-view-all {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
   gap: 10px;
-  padding:12px; 
+  padding: 16px 28px;
   background-color: var(--text-primary);
-  color: var(--text-one);
-  font-size: 14px;
+  color: var(--bg-color);
+  font-size: 18px;
   font-weight: 600;
   text-decoration: none;
   border-radius: 42px;
   transition: background-color var(--transition-speed) ease;
 }
 
+.btn-view-all:hover {
+  background-color: #333333;
+}
 
-.btn-read:hover { background-color: #333333; }
+/* 🌟 轮播外层容器 */
+.carousel-wrapper {
+  position: relative;
+  width: 100%;
+  border-radius: 24px;
+  overflow: hidden; /* 保证内部图片圆角完美 */
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08); 
+}
 
-.carousel-pagination { display: flex; justify-content: center; align-items: center; gap: 4px; }
+/* 🌟 修改：悬浮在图片上的毛玻璃箭头 */
+.nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  display: inline-flex;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  gap: 17px;
+  width: 72px;
+  height: 72px;
+  border-radius: 68.727px;
+  background: linear-gradient(180deg, rgba(248, 255, 238, 0.20) 0%, rgba(255, 255, 255, 0.20) 100%);
+  box-shadow: -3.273px -3.273px 3.273px 0 rgba(168, 196, 238, 0.25) inset;
+  border: none;
+  color: #ffffff; /* 强行白色图标 */
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all var(--transition-speed) ease;
+}
+
+.nav-arrow:hover { 
+  background: rgba(255, 255, 255, 0.3); 
+  transform: translateY(-50%) scale(1.05); /* 悬浮时微放 */
+}
+
+.prev-arrow { left: 32px; }
+.next-arrow { right: 32px; }
+
+/* 卡片容器：去掉原本的背景色和 padding */
+.project-card {
+  display: none; 
+  width: 100%;
+}
+
+.project-card.active {
+  display: block;
+  animation: slideFadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideFadeIn {
+  0% { opacity: 0; transform: translateX(20px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+.project-image-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.project-image { 
+  width: 100%; 
+  height: auto; 
+  overflow: hidden; 
+}
+
+.project-image img { 
+  display: block; 
+  width: 100%; 
+  height: auto; 
+  object-fit: cover; 
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* 悬浮图片时微微放大，暗示这是可点击的 */
+.project-image-link:hover .project-image img {
+  transform: scale(1.02);
+}
+
+.carousel-pagination { display: flex; justify-content: center; align-items: center; gap: 4px; margin-top: 10px; }
 .dot { width: 6px; height: 6px; background-color: #e6e6e6; border-radius: 50%; cursor: pointer; transition: all var(--transition-speed) ease; }
 .dot.active { width: 40px; height: 6px; background: var(--gradient-primary); border-radius: 8px; }
 
@@ -644,13 +680,11 @@ body {
   .stat-item { padding-left: 15px; flex: none; width: auto; max-width: none; border-left: 2px solid var(--text-muted); }
   .stat-number { font-size: 40px; }
 
-  /* Case Studies 区域：缩减文字和卡片 Padding */
-  .section-tag { padding-bottom: 40px;}
-  
-  .project-image img { border-radius: 12px; } /* 卡片图片圆角缩小 */
-  .project-info { gap: 10px; padding: 10px 20px 20px 20px; } /* 卡片信息区内边距缩小 */
-  .project-title { font-size: 20px; }
-  .project-meta, .project-date { font-size: 16px; }
+/* --- Case Studies 区域 (Tablet) --- */
+  .case-studies-section { padding: 80px 40px; gap: 30px; }
+  .section-tag { padding-bottom: 20px; }
+  .btn-view-all { padding: 12px 20px; font-size: 16px; }
+  .carousel-wrapper { border-radius: 16px; }
 
   /* Playground 区域：缩小卡片并定义专属新动画 (重要！) */
   .playground-tag { top: 40px; left: 40px; }
@@ -773,27 +807,28 @@ body {
     letter-spacing: -0.28px;
   }
 
-  /* --- Case Studies 区域 --- */
-  .case-studies-section { padding: 20px 20px 100px 20px; gap: 0; }
+/* --- Case Studies 区域 (Mobile) --- */
+  .case-studies-section { padding: 40px 20px 80px 20px; gap: 20px; }
+  .section-header { flex-direction: column; align-items: flex-start; gap: 24px; }
   .header-left { gap: 0; }
-  .header-right { display: none; } 
-  .section-tag { padding-bottom: 80px; }
-  .section-title {
-    font-size: 48px;
-    font-weight: 600;
-    letter-spacing: -3.36px;
-    padding-bottom: 20px;
-  }
-  .section-subtitle { 
-  font-size: 14px;
-  font-weight: 400;
-  letter-spacing: -0.28px;
-  padding-bottom: 20px;
-  }
-  .carousel-pagination {
-    display: none;
-  }
-  .project-info { flex-direction: column; align-items: flex-start; gap: 12px; padding: 10px 12px 23px 12px; }
+  .section-tag { padding-bottom: 40px; }
+  .section-title { font-size: 40px; font-weight: 600; letter-spacing: -2px; padding-bottom: 12px; }
+  .section-subtitle { font-size: 14px; padding-bottom: 0; }
+  
+  /* 手机端恢复显示右侧按钮，并设置铺满全宽增强点击感 */
+  .header-right { display: flex; width: 100%; margin-bottom: 10px; }
+  .btn-view-all { width: 100%; justify-content: center; }
+  
+  /* 手机端箭头缩小，贴近边缘 */
+  /* 这个变化值得讨论 */
+  .nav-arrow { width: 44px; height: 44px; }
+  .nav-arrow svg { width: 24px; height: 24px; }
+  .prev-arrow { left: 12px; }
+  .next-arrow { right: 12px; }
+  
+  /* 手机端恢复圆点显示 */
+  .carousel-pagination { display: flex; margin-top: 16px; }
+  .carousel-wrapper { border-radius: 16px; }
     
     /* 🌟 核心修正：取消 100% 宽度，并让它自身独立靠右对齐！ */
     .info-right { width: auto; align-self: center; }
