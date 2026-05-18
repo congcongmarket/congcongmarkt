@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rebuilding a Modular Sales Tool System</title>
+  <title>Enterprise Mobility Experience</title>
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="stylesheet" href="expCommon.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="image" href="case3_hero.webp">
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&family=Manrope:wght@400;500;600&family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -19,7 +20,7 @@
     <div class="nav-menu">
       <a href="index.html" class="nav-link">Home</a>
       <a href="case.html" class="nav-link">About Me</a>
-      <a href="exp.html" class="nav-link active">Case Studies</a>
+      <a href="project.html" class="nav-link active">Case Studies</a>
       <a href="playground.html" class="nav-link">Playground</a>
     </div>
     <div class="nav-actions">
@@ -46,13 +47,13 @@
 
   <section class="exp-detail-hero">
     <div class="exp-hero-text">
-      <h1 class="exp-title">Rebuilding a Modular Sales Tool System</h1>
+      <h1 class="exp-title">Cointel: Be Curious</h1>
       <p class="exp-description">
-        Restructuring a WeCom-based sales tool to improve efficiency and scalability in complex frontline workflows.
+        Redefining an AI-powered crypto brand through a scalable visual system and an immersive landing page experience.
       </p>
     </div>
     <div class="exp-hero-image">
-      <img src="exp3H.png" alt="Enterprise Mobility App Screens">
+      <img src="case3_hero.webp" alt="Cointel Landing Page">
     </div>
   </section>
 
@@ -60,117 +61,62 @@
     
     <aside class="exp-sidebar">
       <a href="#context" class="sidebar-item">Context</a>
-      <a href="#intro1" class="sidebar-item">Challenge</a>
-      <a href="#intro2" class="sidebar-item">Method</a>
-      <a href="#intro3" class="sidebar-item">Strategy</a>
-      <a href="#intro4" class="sidebar-item">Result</a>
+      <a href="#intro1" class="sidebar-item">Design Process</a>
+      <a href="#intro2" class="sidebar-item">Brand Repositioning</a>
+      <a href="#intro3" class="sidebar-item">Brand Guideline Design</a>
+      <a href="#intro4" class="sidebar-item">Landing Page Design</a>
+      <a href="#intro5" class="sidebar-item">Supporting Assets</a>
     </aside>
 
     <div class="exp-info-list">
       
       <div class="info-block" id="context">
         <h3 class="info-title">Context</h3>
-        <p class="info-desc">This project optimized a WeCom-based sales tool used by frontline advisors to manage customers, orders, 
-          and appointments. As new features were gradually added, the interface became cluttered and inconsistent. Instead of redesigning the system, 
-          the goal was to reorganize the structure and establish clear rules that could support future expansion.
-        </p>
-        <p class="info-desc">The goal was to establish a scalable UI structure that could evolve with business 
-          growth by restructuring the homepage hierarchy, defining a unified component system, 
-          and enabling developers to extend new features independently within clear design rules.
-        </p>
+        <div class="info-image">
+          <img src="case3_image1.webp" alt="Project Screenshot 2" loading="lazy">
+        </div>
       </div>
       <div class="info-block" id="intro1">
-        <h3 class="info-title">Challenge</h3>
-        <p class="info-subtitle">Growing Business Complexity</p>
-        <p class="info-desc">As sales processes and modules expanded, the system’s complexity increased significantly. 
-          Leads, customers, orders, deliveries, and appointments were layered onto the same interface, 
-          with new features often added as additional fields, cards, or entry points. Over time, 
-          the tool evolved from a focused sales assistant into a cluttered interface overloaded with information.
-        </p>
-        <p class="info-subtitle">Lack of a Unified Information Structure</p>
-        <p class="info-desc">On the list and detail pages, information was arranged loosely within cards, 
-          with no consistent structure between fields and no clear emphasis on key states. While manageable at smaller scales, 
-          the growing number of fields quickly reduced readability, 
-          forcing sales advisors to spend more time interpreting information and making future expansion increasingly difficult.
-        </p>
-        <p class="info-subtitle">Lack of Scalable UI Rules</p>
-        <p class="info-desc">With no dedicated UI support, many interface changes in later iterations 
-          were implemented directly by developers. Without clear component rules or information structures, 
-          new features were often added wherever space allowed, causing the interface to drift over time. 
-          The key challenge was not only to improve clarity, 
-          but to establish scalable UI rules that developers could consistently follow as the system evolved.
-        </p>
+        <h3 class="info-title">Design Process</h3>
         <div class="info-image">
-          <img src="exp31.png" alt="Project Screenshot 2">
+          <img src="case3_image2.webp" alt="Project Screenshot 2" loading="lazy">
         </div>
       </div>
 
       <div class="info-block" id="intro2">
-        <h3 class="info-title">Method</h3>
-        <p class="info-desc">From a business perspective, I first mapped the core information types used by sales advisors. 
-          Page content was grouped into three categories:task-related actions 
-          for operational buttons and next-step triggers, informational fields for business and customer details, and status indicators 
-          for at-a-glance progress, intent, or processing state. After defining these categories, 
-          I analyzed the homepage, list, and detail pages. While the homepage structure was largely stable, the list and detail pages showed inconsistent field layouts, 
-          unclear hierarchy, and poor scalability. As a result, the focus shifted from redesigning pages to standardizing how information is structured and presented.
-        </p>
+        <h3 class="info-title">Brand Image Repositioning</h3>
+        <div class="info-image">
+          <img src="case3_image3.webp" alt="Project Screenshot 3" loading="lazy">
+        </div>
       </div>
 
       <div class="info-block" id="intro3">
-        <h3 class="info-title">Strategy</h3>
-        <p class="info-subtitle">Principle 1 — Preserve Structure, Improve Readability</p>
-        <p class="info-desc">The homepage structure remained unchanged to avoid disrupting existing workflows. 
-          Instead, visual noise was reduced by limiting colors and strengthening hierarchy, making the interface cleaner and easier to scan.
-        </p>
-        <p class="info-subtitle">Principle 2 — Standardize Information with Key–Value</p>
-        <p class="info-desc">List and detail pages were reorganized into a Key–Value structure, 
-          clarifying field relationships and creating a stable pattern for adding new data without redesigning layouts.
-        </p>
-        <p class="info-subtitle">Principle 3 — Highlight Key States with Tags</p>
-        <p class="info-desc">Important information such as source, intent, 
-          or status was presented as tags, enabling faster scanning and recognition compared to plain text.
-        </p>
-        <p class="info-subtitle">Principle 4 — Create Extendable Component Rules</p>
-        <p class="info-desc">Reusable patterns—information area, tag area, 
-          and action area—were defined so developers can extend features within existing structures while maintaining interface consistency.
-        </p>
+        <h3 class="info-title">Brand Guideline Design</h3>
         <div class="info-image">
-          <img src="exp32.png" alt="Project Screenshot 3">
+          <img src="case3_image4.webp" alt="Project Screenshot 3" loading="lazy">
         </div>
       </div>
 
       <div class="info-block" id="intro4">
-        <h3 class="info-title">Result</h3>
+        <h3 class="info-title">Landing Page Design</h3>
         <div class="info-image">
-          <img src="exp33.png" alt="Project Screenshot 3">
+          <img src="case3_image5.webp" alt="Project Screenshot 3" loading="lazy">
         </div>
-        <p class="info-subtitle">Homepage Optimization (Task-Oriented Homepage)</p>
-        <p class="info-desc">The overall homepage structure remained unchanged, with improvements focused on visual hierarchy. 
-          By reducing excessive colors, minimizing decorative noise, and strengthening separation between modules, 
-          the interface became cleaner and easier to scan. Task information, metrics, 
-          and tool entries are now more clearly distinguished, improving readability while preserving existing user habits.
-        </p>
-        <p class="info-subtitle">Structured List Page</p>
-        <p class="info-desc">The list page underwent the most significant changes. 
-          Previously, customer information was scattered across cards without a consistent structure, 
-          making it difficult to read and expand. In the redesign, key information was reorganized into a Key–Value layout, 
-          creating clearer relationships and a more predictable reading flow. Important attributes such as source or status were converted into tags, 
-          allowing sales to quickly identify key information while scanning the list. This approach improves both readability and future scalability.
-        </p>
-        <p class="info-subtitle">Clear Detail Page Hierarchy</p>
-        <p class="info-desc">The detail page follows the same structure as the list page, 
-          using a Key–Value layout for core information and tags to highlight key states. 
-          This consistency allows users to move from list to detail without adjusting to a new reading pattern. 
-          Information grouping and action placement were also stabilized, keeping the page clear even as more business data is added.
-        </p>
+      </div>
+
+      <div class="info-block" id="intro5">
+        <h3 class="info-title">Supporting Assets</h3>
+        <div class="info-image">
+          <img src="case3_image6.webp" alt="Project Screenshot 3" loading="lazy">
+        </div>
       </div>
     </div>
   </section>
 
   <section class="next-case-section">
-    <a href="exp.html" class="next-case-btn">
+    <a href="exp4.html" class="next-case-btn">
       See Next Case 
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M5 12H19 M12 5L19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </a>
