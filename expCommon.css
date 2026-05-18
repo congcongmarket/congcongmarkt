@@ -146,8 +146,8 @@ body { font-family: 'Manrope', sans-serif;
 /* 列表内的配图容器 */
 .info-image {
   width: 100%;
-  border-radius: 20px;
   overflow: hidden;
+  border-radius: 20px;
 }
 
 .info-image img {
@@ -155,8 +155,22 @@ body { font-family: 'Manrope', sans-serif;
   width: 100%;
   height: auto;
   object-fit: cover;
-  aspect-ratio: 16/9;
 }
+
+/* 列表内的配图容器 */
+.info-video {
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.info-video video {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
 
 /* =========================================
    5. 下一个案例引导区 (Next Case Section)
@@ -176,8 +190,8 @@ body { font-family: 'Manrope', sans-serif;
   padding: 12px;
   font-size: 20px;
   font-weight: 600;
-  background-color: var(--text-primary);
-  color: var(--bg-color);
+  background-color: var(--bg-color);
+  color: var(--text-primary);
   text-decoration: none;
   transition: opacity var(--transition-speed) ease;
   border-radius: 42px;

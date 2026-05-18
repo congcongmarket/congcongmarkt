@@ -116,25 +116,44 @@ body {
   overflow: hidden;
 }
 
+/* 🌟 修改：允许 Canvas 感应鼠标，并添加扫描线和背景 */
 .hero-visual {
   position: absolute;
   inset: 0; 
   z-index: 0;
-  pointer-events: none; 
+  pointer-events: auto; /* 允许鼠标交互 */
   width: 100%;
   height: 100%;
+  background-color: #ffffff; /* ASCII 画布底色 */
+  overflow: hidden;
 }
 
-.hero-visual img { 
+/* 🌟 新增：扫描线质感 */
+.hero-visual::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: repeating-linear-gradient(
+      to bottom, 
+      rgba(0, 0, 0, 0.03) 0px, 
+      rgba(0, 0, 0, 0.03) 1px, 
+      transparent 1px, 
+      transparent 2px
+  );
+  pointer-events: none; /* 扫描线自身不需要点击 */
+  z-index: 10;
+}
+
+/* 🌟 新增：Canvas 样式 */
+#asciiCanvas {
   display: block;
-  width: 100%; 
-  height: 100%; 
-  /* 魔法属性：强制铺满整个容器，自动裁切不发生变形 */
-  object-fit: cover; 
-  /* 保证视觉中心（绿色砖块）始终在正中间 */
-  object-position: center center; 
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 1;
 }
 
+/* 🌟 修改：防止外层文字容器遮挡 Canvas 鼠标交互 */
 .hero-content {
   position: relative; 
   z-index: 2;
@@ -144,6 +163,12 @@ body {
   gap: 360px; 
   width: 100%;
   padding: 80px 0 40px 0;
+  pointer-events: none; /* 让鼠标透过容器 */
+}
+
+/* 让文字自身依然可以被选中或点击 */
+.hero-content > * {
+  pointer-events: auto;
 }
 
 .hero-left { display: flex; flex-direction: column; align-items: flex-start; width: 100%; }
@@ -335,6 +360,11 @@ body {
   border-radius: 68.727px;
   background: linear-gradient(180deg, rgba(248, 255, 238, 0.20) 0%, rgba(255, 255, 255, 0.20) 100%);
   box-shadow: -3.273px -3.273px 3.273px 0 rgba(168, 196, 238, 0.25) inset;
+
+  /* 添加背景模糊效果 */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px); 
+
   border: none;
   color: #ffffff; /* 强行白色图标 */
   border-radius: 50%;

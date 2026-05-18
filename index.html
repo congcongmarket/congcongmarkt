@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="image" href="heroBg.webp">
+  <!-- 注意：已经去掉了原先加载 heroBg.webp 的 preload，因为我们换成动态 Canvas 了 -->
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&family=Manrope:wght@400;500;600&family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -20,7 +20,7 @@
     <div class="nav-menu">
       <a href="index.html" class="nav-link active">Home</a>
       <a href="case.html" class="nav-link">About Me</a>
-      <a href="exp.html" class="nav-link">Case Studies</a>
+      <a href="project.html" class="nav-link">Case Studies</a>
       <a href="playground.html" class="nav-link">Playground</a>
     </div>
     <div class="nav-actions">
@@ -47,7 +47,8 @@
 
   <section class="hero-section" id="home">
     <div class="hero-visual">
-      <img src="heroBg.webp" alt="Creative flow and growth concept">
+      <!-- 🌟 原本的 img 换成了 canvas -->
+      <canvas id="asciiCanvas"></canvas>
     </div>
     <div class="hero-content">
       <div class="hero-left">
@@ -147,9 +148,8 @@
         <p class="section-subtitle">A mix of in-house products and client projects</p>
       </div>
       
-      <!-- 🌟 新增：右上角的 View All Projects 按钮 -->
       <div class="header-right">
-        <a href="playground.html" class="btn-view-all">
+        <a href="project.html" class="btn-view-all">
           View All Projects
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -158,10 +158,8 @@
       </div>
     </div>
 
-    <!-- 🌟 轮播容器 -->
     <div class="carousel-wrapper" style="position: relative;">
       
-      <!-- 🌟 将箭头移入容器内部，方便绝对定位覆盖在图片上 -->
       <button class="nav-arrow prev-arrow">
         <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -173,29 +171,26 @@
         </svg>
       </button>
       
-      <!-- 卡片 1 (整图可点击) -->
       <div class="project-card active">
         <a href="exp.html" class="project-image-link">
           <div class="project-image">
-            <img src="vagan.webp" loading="lazy" alt="Enterprise Mobility Experience">
+            <img src="case1_hero.webp" loading="lazy" alt="Enterprise Mobility Experience">
           </div>
         </a>
       </div>
 
-      <!-- 卡片 2 (整图可点击) -->
       <div class="project-card">
         <a href="exp2.html" class="project-image-link">
           <div class="project-image">
-            <img src="exp2H.webp" loading="lazy" alt="Web3 Trading Dashboard">
+            <img src="case2_hero.webp" loading="lazy" alt="Web3 Trading Dashboard">
           </div>
         </a>
       </div>
 
-      <!-- 卡片 3 (整图可点击) -->
       <div class="project-card">
         <a href="exp3.html" class="project-image-link">
           <div class="project-image">
-            <img src="exp3H.webp" loading="lazy" alt="Digital Vault Experience">
+            <img src="case3_hero.webp" loading="lazy" alt="Digital Vault Experience">
           </div>
         </a>
       </div>
